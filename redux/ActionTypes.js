@@ -1,0 +1,12 @@
+export const ADD_LANGUAGES = "ADD_LANGUAGES";
+export const LANGUAGES_FAILED = "LANGUAGES_FAILED";
+
+export const PROJECTS_LOADING = "PROJECTS_LOADING";
+export const ADD_PROJECTS = "ADD_PROJECTS";
+export const PROJECTS_FAILED = "PROJECTS_FAILED";
+
+export const ADD_SKILLS = "ADD_SKILLS";
+export const SKILLS_FAILED = "SKILLSS_FAILED";
+
+export const ADD_TOOLS = "ADD_TOOLS";
+export const TOOLS_FAILED = "TOOLS_FAILED";
