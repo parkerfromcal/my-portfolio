@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { FlatList } from "react-native";
-import { ListItem } from "react-native-elements";
-import { PROJECTS } from "../shared/projects";
+import { Tile } from "react-native-elements";
+import { connect } from "react-redux";
+import { baseUrl } from "../shared/baseUrl";
+
+const mapStateToProps = (state) => {
+  return {
+    projects: state.projects,
+  };
+};
 
 class ProjectDirectory extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      projects: PROJECTS,
-    };
-  }
-
   static navigationOptions = {
     title: "Projects",
   };
@@ -19,18 +19,19 @@ class ProjectDirectory extends Component {
     const { navigate } = this.props.navigation;
     const renderDirectoryItem = ({ item }) => {
       return (
-        <ListItem
+        <Tile
           title={item.name}
-          subtitle={item.description}
+          caption={item.description}
+          featured
           onPress={() => navigate("ProjectInfo", { projectId: item.id })}
-          leftAvatar={{ source: require("./images/katherineparker.jpeg") }}
+          imageSrc={{ uri: baseUrl + item.image }}
         />
       );
     };
 
     return (
       <FlatList
-        data={this.state.projects}
+        data={this.props.projects.projects}
         renderItem={renderDirectoryItem}
         keyExtractor={(item) => item.id.toString()}
       />
@@ -38,4 +39,4 @@ class ProjectDirectory extends Component {
   }
 }
 
-export default ProjectDirectory;
+export default connect(mapStateToProps)(ProjectDirectory);

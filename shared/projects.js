@@ -22,7 +22,7 @@ export const PROJECTS = [
   {
     id: 2,
     name: "Big Auctions React",
-    image: "../components/images/bix-auctions-react.jpeg",
+    image: "../components/images/bic-auctions-react.jpeg",
     completion: "May 2021",
     description:
       "Converted auction site; single-page application, reusable components, React Router, Bootstrap and custom CSS, JSX and Javscript",

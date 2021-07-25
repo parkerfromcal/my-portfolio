@@ -15,7 +15,22 @@ import { Icon } from "react-native-elements";
 import { createStackNavigator } from "react-navigation-stack";
 import { createDrawerNavigator, DrawerItems } from "react-navigation-drawer";
 import { createAppContainer } from "react-navigation";
+import Constants from "expo-constants";
 import SafeAreaView from "react-native-safe-area-view";
+import { connect } from "react-redux";
+import {
+  fetchLanguages,
+  fetchProjects,
+  fetchSkills,
+  fetchTools,
+} from "../redux/ActionCreators";
+
+const mapDispatchToProps = {
+  fetchLanguages,
+  fetchProjects,
+  fetchSkills,
+  fetchTools,
+};
 
 const DirectoryNavigator = createStackNavigator(
   {
@@ -166,13 +181,18 @@ const MainNavigator = createDrawerNavigator(
 const AppNavigator = createAppContainer(MainNavigator);
 
 class Main extends Component {
+  componentDidMount() {
+    this.props.fetchLanguages();
+    this.props.fetchProjects();
+    this.props.fetchSkills();
+    this.props.fetchTools();
+  }
   render() {
     return (
       <View
         style={{
           flex: 1,
-          paddingTop:
-            Platform.OS === "ios" ? 0 : Expo.Constants.statusBarHeight,
+          paddingTop: Platform.OS === "ios" ? 0 : Constants.statusBarHeight,
         }}
       >
         <AppNavigator />
@@ -211,4 +231,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Main;
+export default connect(null, mapDispatchToProps)(Main);

@@ -1,27 +1,25 @@
 import React, { Component } from "react";
 import { Text, ScrollView, StyleSheet } from "react-native";
 import { Card } from "react-native-elements";
-import { LANGUAGES } from "../shared/languages";
-import { TOOLS } from "../shared/tools";
-import { SKILLS } from "../shared/skills";
 import { ImageBackground } from "react-native";
+import { connect } from "react-redux";
+import { baseUrl } from "../shared/baseUrl";
+
+const mapStateToProps = (state) => {
+  return {
+    languages: state.languages,
+    skills: state.skills,
+    tools: state.tools,
+  };
+};
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      languages: LANGUAGES,
-      tools: TOOLS,
-      skills: SKILLS,
-    };
-  }
-
   static navigationOptions = {
     title: "KatherineParker",
   };
 
   languages = () => {
-    return this.state.languages.map((language) => {
+    return this.props.languages.languages.map((language) => {
       return (
         <Text key={language.id} style={styles.homeCardText}>
           {language.name}
@@ -31,7 +29,7 @@ class Home extends Component {
   };
 
   tools = () => {
-    return this.state.tools.map((tool) => {
+    return this.props.tools.tools.map((tool) => {
       return (
         <Text key={tool.id} style={styles.homeCardText}>
           {tool.name}
@@ -41,7 +39,7 @@ class Home extends Component {
   };
 
   skills = () => {
-    return this.state.skills.map((skill) => {
+    return this.props.skills.skills.map((skill) => {
       return (
         <Text key={skill.id} style={styles.homeCardText}>
           {skill.name}
@@ -92,4 +90,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default connect(mapStateToProps)(Home);
