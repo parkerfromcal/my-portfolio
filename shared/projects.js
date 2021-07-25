@@ -2,7 +2,7 @@ export const PROJECTS = [
   {
     id: 0,
     name: "AmeriCorps",
-    image: "/images/americorps.jpeg",
+    image: "/assets/images/americorps.jpg",
     completion: "January 2021",
     description:
       "Rebrand project: information architecture, UI/UX, front-end development, page templates, content update, and migration from Drupal 7 to 8; HTML, Bootstrap, Twig",
@@ -12,7 +12,7 @@ export const PROJECTS = [
   {
     id: 1,
     name: "Big Auctions Bootstrap",
-    image: "/images/bic-auctions-bootstrap.jpeg",
+    image: "/assets/images/bic-auctions-bootstrap.jpg",
     completion: "March 2021",
     description:
       "Sleek and mobile-friendly auction site; base theme of Bootstrap with custom theme built on top, HTML, CSS, and Javascript",
@@ -22,7 +22,7 @@ export const PROJECTS = [
   {
     id: 2,
     name: "Big Auctions React",
-    image: "/images/bic-auctions-react.jpeg",
+    image: "/assets/images/bic-auctions-react.jpg",
     completion: "May 2021",
     description:
       "Converted auction site; single-page application, reusable components, React Router, Bootstrap and custom CSS, JSX and Javscript",
@@ -32,7 +32,7 @@ export const PROJECTS = [
   {
     id: 3,
     name: "NuCamp React Native",
-    image: "/images/nucamp-react-native.jpeg",
+    image: "/assets/images/nucamp-react-native.jpg",
     completion: "June 2021",
     description:
       "Converted NuCamp app; expo CLI, Android Emulator, React Native components, Javascript",
@@ -42,7 +42,7 @@ export const PROJECTS = [
   {
     id: 4,
     name: "katherine.parker portfolio",
-    image: "/images/kp-one.jpeg",
+    image: "/components/images/kp-one.jpg",
     completion: "July 2021",
     description:
       "Presentational and informational site about myself as a developer; mobile optimization, single-page application, React Redux, React Router params, api/server requests",

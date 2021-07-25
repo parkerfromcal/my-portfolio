@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Text, View } from "react-native";
 import { Card } from "react-native-elements";
 import { connect } from "react-redux";
-import { projects } from "../redux/projects";
 import { baseUrl } from "../shared/baseUrl";
 
 const mapStateToProps = (state) => {
@@ -11,12 +10,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-function RenderProject({ project }) {
+function RenderProject(props) {
+  const { project } = props;
   if (project) {
     return (
       <Card
         featuredTitle={project.name}
-        image={{ uri: baseUrl + projects.image }}
+        image={{ uri: baseUrl + project.image }}
         style={{ borderRadius: 20 }}
       >
         <Text style={{ margin: 10 }}>
