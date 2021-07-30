@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Text, ScrollView, StyleSheet } from "react-native";
+import { Text, ScrollView, StyleSheet, ImageBackground } from "react-native";
 import { Card } from "react-native-elements";
-import { ImageBackground } from "react-native";
 import { connect } from "react-redux";
-import { baseUrl } from "../shared/baseUrl";
 
 const mapStateToProps = (state) => {
   return {

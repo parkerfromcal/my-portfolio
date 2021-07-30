@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FlatList } from "react-native";
+import { FlatList, View, StyleSheet } from "react-native";
 import { Tile } from "react-native-elements";
 import { connect } from "react-redux";
 import { baseUrl } from "../shared/baseUrl";
@@ -20,6 +20,8 @@ class ProjectDirectory extends Component {
     const renderDirectoryItem = ({ item }) => {
       return (
         <Tile
+          imageContainerStyle={{ opacity: 0.5 }}
+          titleStyle={{ fontWeight: "bold", fontSize: 32, color: "#ae7862" }}
           title={item.name}
           caption={item.description}
           featured
