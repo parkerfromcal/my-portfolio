@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FlatList, View, StyleSheet } from "react-native";
+import { FlatList, ImageBackground, StyleSheet } from "react-native";
 import { Tile } from "react-native-elements";
 import { connect } from "react-redux";
 import { baseUrl } from "../shared/baseUrl";
@@ -24,19 +24,32 @@ class ProjectDirectory extends Component {
           caption={item.description}
           featured
           onPress={() => navigate("ProjectInfo", { projectId: item.id })}
-          imageSrc={{ uri: baseUrl + item.image }}
         />
       );
     };
 
     return (
-      <FlatList
-        data={this.props.projects.projects}
-        renderItem={renderDirectoryItem}
-        keyExtractor={(item) => item.id.toString()}
-      />
+      <ImageBackground
+        style={styles.backgroundImage}
+        source={require("./images/cactus-two.jpeg")}
+      >
+        <FlatList
+          data={this.props.projects.projects}
+          renderItem={renderDirectoryItem}
+          keyExtractor={(item) => item.id.toString()}
+        />
+      </ImageBackground>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    opacity: 0.8,
+  },
+});
 
 export default connect(mapStateToProps)(ProjectDirectory);
